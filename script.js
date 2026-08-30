@@ -1,4 +1,4 @@
-const API_URL = "https://mental-helth-predictor-mansik-swasath.onrender.com"; // Update this URL if your FastAPI server is running on a different host or port
+const API_URL = "https://mental-helth-predictor-mansik-swasath.onrender.com/predict"; // Update this URL if your FastAPI server is running on a different host or port
 
 const form = document.getElementById("predictionForm");
 const predictBtn = document.getElementById("predictBtn");
