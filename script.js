@@ -71,7 +71,7 @@ function showResult(score) {
   const numericScore = Number(score);
   scoreValue.textContent = numericScore.toFixed(2);
 
-  // 10 के स्केल के लिए विज़ुअल रिंग को अपडेट किया गया
+  // 10 के स्केल के हिसाब से विजुअल रिंग कैलकुलेशन
   const visualScore = Math.max(0, Math.min(10, numericScore));
   const circumference = 2 * Math.PI * 92;
   scoreCircle.style.strokeDasharray = circumference;
@@ -82,19 +82,18 @@ function showResult(score) {
       circumference - (visualScore / 10) * circumference;
   });
 
-  // 10 के स्केल के हिसाब से लॉजिक (उदा. 7.5 से ऊपर अच्छा है)
   if (numericScore >= 7.5) {
-    scoreBadge.textContent = "Higher wellbeing signal";
-    scoreBadge.style.color = "#52d9c7";
-    scoreMessage.textContent = "The model produced a comparatively higher wellbeing score.";
+    scoreBadge.textContent = "Optimal Wellbeing Indicator";
+    scoreBadge.style.color = "#059669";
+    scoreMessage.textContent = "The diagnostic model indicates a healthy and positive mental wellness balance.";
   } else if (numericScore >= 5.0) {
-    scoreBadge.textContent = "Moderate wellbeing signal";
-    scoreBadge.style.color = "#c8b85d";
-    scoreMessage.textContent = "The model produced a moderate wellbeing score.";
+    scoreBadge.textContent = "Moderate Wellness Signal";
+    scoreBadge.style.color = "#d97706";
+    scoreMessage.textContent = "The model indicates moderate stress or lifestyle imbalance markers.";
   } else {
-    scoreBadge.textContent = "Lower wellbeing signal";
-    scoreBadge.style.color = "#ff8a98";
-    scoreMessage.textContent = "The model produced a comparatively lower wellbeing score.";
+    scoreBadge.textContent = "Elevated Risk Indicator";
+    scoreBadge.style.color = "#dc2626";
+    scoreMessage.textContent = "The model flagged lower wellbeing indicators requiring supportive measures.";
   }
 }
 
@@ -146,7 +145,7 @@ form.addEventListener("submit", async (event) => {
     console.error(error);
     showError(
       error.message.includes("Failed to fetch")
-        ? "Cannot connect to the FastAPI server. Make sure it is running on port 2200."
+        ? "Cannot connect to the backend server. Make sure FastAPI is running."
         : error.message
     );
   } finally {
@@ -164,13 +163,13 @@ resetBtn.addEventListener("click", () => {
 });
 
 copyBtn.addEventListener("click", async () => {
-  const text = `Predicted mental health score: ${scoreValue.textContent}`;
+  const text = `Clinical Wellbeing Index: ${scoreValue.textContent} / 10`;
   try {
     await navigator.clipboard.writeText(text);
-    copyBtn.textContent = "Copied ✓";
-    setTimeout(() => (copyBtn.textContent = "Copy score"), 1500);
+    copyBtn.textContent = "Exported ✓";
+    setTimeout(() => (copyBtn.textContent = "Export Metric"), 1500);
   } catch (_) {
-    copyBtn.textContent = "Copy unavailable";
+    copyBtn.textContent = "Unavailable";
   }
 });
 

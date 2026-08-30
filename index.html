@@ -3,68 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1020">
-  <title>MindScope — Mental Health Predictor</title>
+  <meta name="theme-color" content="#f0fdf4">
+  <title>MindScope Health — Student Wellbeing Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-
   <header class="navbar">
-    <a class="brand" href="#">
-      <span class="brand-mark">✦</span>
-      <span>Mind<span>Scope</span></span>
-    </a>
-    <div class="nav-status"><i></i> AI prediction system</div>
+    <div class="brand">
+      <span class="brand-icon">✚</span>
+      <span>Mind<span>Scope</span> <small>Clinical AI</small></span>
+    </div>
+    <div class="nav-badge"><i></i> Secure Health Portal</div>
   </header>
 
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <div class="eyebrow"><span></span> Student wellbeing intelligence</div>
-        <h1>Understand the signals behind <em>student wellbeing.</em></h1>
-        <p>Enter a few lifestyle, academic and digital-usage details. Your FastAPI model will generate a predicted mental-health score in seconds.</p>
-        <div class="hero-pills">
-          <span>Private by design</span>
-          <span>Fast prediction</span>
-          <span>Student focused</span>
+  <main class="container">
+    <section class="hero-section">
+      <div class="hero-content">
+        <span class="badge-pill">Student Mental Healthcare & Analytics</span>
+        <h1>Holistic Assessment for <em>Student Wellbeing</em></h1>
+        <p>Our clinical intelligence model evaluates behavioral, academic, and lifestyle markers to generate rapid, data-driven mental wellness insights.</p>
+        <div class="trust-indicators">
+          <span>🔒 Encrypted & Confidential</span>
+          <span>⚡ Instant AI Scoring</span>
+          <span>🩺 Evidence-Based</span>
         </div>
-      </div>
-
-      <div class="orb-card reveal">
-        <div class="orb">
-          <div class="orb-ring ring-a"></div>
-          <div class="orb-ring ring-b"></div>
-          <div class="orb-core"><span>✦</span></div>
-        </div>
-        <div class="orb-label">MindScope AI</div>
-        <small>Wellbeing prediction</small>
       </div>
     </section>
 
-    <section class="app-grid">
-      <form id="predictionForm" class="form-card reveal" novalidate>
-        <div class="card-heading">
+    <div class="portal-grid">
+      <form id="predictionForm" class="medical-card form-container" novalidate>
+        <div class="card-header">
           <div>
-            <span class="section-kicker">01 — PROFILE</span>
-            <h2>Tell us about the student</h2>
+            <h3>Patient / Student Profile</h3>
+            <p>Fill out the clinical parameters below</p>
           </div>
-          <span class="progress-text" id="progressText">0 / 12</span>
+          <span class="progress-badge" id="progressText">0 / 12</span>
         </div>
 
-        <div class="progress-track"><div id="progressBar"></div></div>
+        <div class="progress-bar-wrapper">
+          <div id="progressBar"></div>
+        </div>
 
-        <div class="fields">
-          <label class="field">
+        <div class="form-grid">
+          <label class="input-group">
             <span>Age</span>
             <input id="Age" name="Age" type="number" min="11" max="100" placeholder="e.g. 21" required>
           </label>
 
-          <label class="field">
+          <label class="input-group">
             <span>Gender</span>
             <select id="Gender" name="Gender" required>
               <option value="">Select gender</option>
@@ -72,13 +61,13 @@
             </select>
           </label>
 
-          <label class="field field-wide">
-            <span>Country</span>
+          <label class="input-group full-width">
+            <span>Country / Region</span>
             <input id="Country" name="Country" type="text" placeholder="e.g. India" required>
           </label>
 
-          <label class="field">
-            <span>Academic level</span>
+          <label class="input-group">
+            <span>Academic Level</span>
             <select id="Academic_Level" name="Academic_Level" required>
               <option value="">Select level</option>
               <option>High School</option>
@@ -88,8 +77,8 @@
             </select>
           </label>
 
-          <label class="field">
-            <span>Most used platform</span>
+          <label class="input-group">
+            <span>Primary Platform</span>
             <select id="Most_Used_Platform" name="Most_Used_Platform" required>
               <option value="">Select platform</option>
               <option>Facebook</option><option>LinkedIn</option><option>Instagram</option>
@@ -99,8 +88,8 @@
             </select>
           </label>
 
-          <label class="field">
-            <span>Purpose of use</span>
+          <label class="input-group">
+            <span>Usage Purpose</span>
             <select id="Purpose_Of_Use" name="Purpose_Of_Use" required>
               <option value="">Select purpose</option>
               <option>Networking</option><option>Education</option>
@@ -108,33 +97,33 @@
             </select>
           </label>
 
-          <label class="field">
-            <span>Average daily usage <b>hours</b></span>
+          <label class="input-group">
+            <span>Daily Screen Time (Hours)</span>
             <input id="Avg_Daily_Usage_Hours" name="Avg_Daily_Usage_Hours" type="number" min="0.01" max="24" step="0.1" placeholder="e.g. 5.5" required>
           </label>
 
-          <label class="field">
-            <span>Daily phone unlocks</span>
+          <label class="input-group">
+            <span>Daily Phone Unlocks</span>
             <input id="Daily_Unlocks" name="Daily_Unlocks" type="number" min="1" step="1" placeholder="e.g. 65" required>
           </label>
 
-          <label class="field">
-            <span>Study hours <b>/ day</b></span>
+          <label class="input-group">
+            <span>Daily Study Hours</span>
             <input id="Study_Hours" name="Study_Hours" type="number" min="0.01" max="24" step="0.1" placeholder="e.g. 6" required>
           </label>
 
-          <label class="field">
-            <span>Physical activity <b>hours</b></span>
+          <label class="input-group">
+            <span>Physical Activity (Hours)</span>
             <input id="Physical_Activity_Hours" name="Physical_Activity_Hours" type="number" min="0.01" max="24" step="0.1" placeholder="e.g. 1.5" required>
           </label>
 
-          <label class="field">
-            <span>Sleep <b>hours / night</b></span>
+          <label class="input-group">
+            <span>Nightly Sleep (Hours)</span>
             <input id="Sleep_Hours_Per_Night" name="Sleep_Hours_Per_Night" type="number" min="0.01" max="24" step="0.1" placeholder="e.g. 7.5" required>
           </label>
 
-          <label class="field">
-            <span>Stress level</span>
+          <label class="input-group">
+            <span>Perceived Stress Level</span>
             <select id="Stress_Level" name="Stress_Level" required>
               <option value="">Select stress level</option>
               <option>Low</option><option>Medium</option><option>High</option><option>Very High</option>
@@ -142,62 +131,57 @@
           </label>
         </div>
 
-        <div class="privacy-note">
-          <span>⌁</span>
-          <div><strong>For educational/wellbeing insight only.</strong> This prediction is not a medical diagnosis and should not replace professional support.</div>
+        <div class="disclaimer-box">
+          <span>ℹ️</span>
+          <div><strong>Clinical Disclaimer:</strong> This metric indicator is designed for screening and wellbeing analysis and does not substitute professional psychological diagnosis.</div>
         </div>
 
-        <button id="predictBtn" class="predict-btn" type="submit">
-          <span class="btn-label">Generate wellbeing score <b>→</b></span>
+        <button id="predictBtn" class="submit-btn" type="submit">
+          <span class="btn-label">Generate Clinical Evaluation Score ➔</span>
           <span class="spinner"></span>
         </button>
         <p id="errorMessage" class="error-message" role="alert"></p>
       </form>
 
-      <aside class="result-card reveal" id="resultCard">
-        <div class="result-top">
-          <span class="section-kicker">02 — RESULT</span>
-          <span class="live-dot"><i></i> MODEL READY</span>
+      <aside class="medical-card result-wrapper" id="resultCard">
+        <div class="card-header">
+          <h3>Diagnostic Analytics</h3>
+          <span class="status-indicator"><i></i> SYSTEM ACTIVE</span>
         </div>
 
         <div id="emptyState" class="empty-state">
-          <div class="mini-chart">
-            <span style="height:34%"></span><span style="height:50%"></span>
-            <span style="height:42%"></span><span style="height:67%"></span>
-            <span style="height:55%"></span><span style="height:78%"></span>
-            <span style="height:63%"></span>
-          </div>
-          <h3>Your result will appear here</h3>
-          <p>Complete the profile and run the model to see your predicted score.</p>
+          <div class="pulse-icon">🏥</div>
+          <h4>Awaiting Profile Data</h4>
+          <p>Complete all required fields on the left and run the diagnostic model to generate the wellness index.</p>
         </div>
 
-        <div id="resultState" class="result-state hidden">
-          <div class="score-label">PREDICTED MENTAL HEALTH SCORE</div>
-          <div class="score-wrap">
+        <div id="resultState" class="result-content hidden">
+          <div class="metric-title">WELLBEING HEALTH INDEX</div>
+          <div class="score-display-box">
             <svg class="score-ring" viewBox="0 0 220 220">
               <circle class="ring-bg" cx="110" cy="110" r="92"></circle>
               <circle id="scoreCircle" class="ring-value" cx="110" cy="110" r="92"></circle>
             </svg>
-            <div class="score-number"><strong id="scoreValue">0.00</strong><span>/ 10</span></div>
+            <div class="score-numeric"><strong id="scoreValue">0.00</strong><span>/ 10</span></div>
           </div>
-          <div id="scoreBadge" class="score-badge">Prediction complete</div>
-          <p id="scoreMessage">Your model prediction has been generated.</p>
+          <div id="scoreBadge" class="clinical-badge">Analysis Completed</div>
+          <p id="scoreMessage">The predictive evaluation has successfully processed.</p>
 
-          <div class="result-actions">
-            <button type="button" id="resetBtn" class="secondary-btn">↻ New assessment</button>
-            <button type="button" id="copyBtn" class="secondary-btn">Copy score</button>
+          <div class="action-row">
+            <button type="button" id="resetBtn" class="outline-btn">New Assessment</button>
+            <button type="button" id="copyBtn" class="outline-btn">Export Metric</button>
           </div>
         </div>
 
-        <div class="result-footer">
-          <span>API endpoint</span>
+        <div class="endpoint-footer">
+          <span>API Gateway</span>
           <code>POST /predict</code>
         </div>
       </aside>
-    </section>
+    </div>
   </main>
 
-  <footer>MindScope AI · Student wellbeing prediction interface</footer>
+  <footer>MindScope Clinical Intelligence · Secure Healthcare Systems</footer>
   <script src="script.js"></script>
 </body>
 </html>
